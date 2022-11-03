@@ -28,9 +28,10 @@ public class PlayerCollision : MonoBehaviour {
     float x = transform.position.x;
     float y = transform.position.y;
 
-    // The positions of the corners of the boxcollider
-    topLeft.transform.position = new Vector3(x - xOffset, y + yOffset, 0);
-    topRight.transform.position = new Vector3(x + xOffset, y + yOffset, 0);
+    // The positions of the corners of the boxcollider. 
+    // The .02f is so that the player can fit through a 1 block gap
+    topLeft.transform.position = new Vector3(x - xOffset, y + yOffset-.02f, 0);
+    topRight.transform.position = new Vector3(x + xOffset, y + yOffset-.02f, 0);
     bottomRight.transform.position = new Vector3(x + xOffset, y - yOffset, 0);
     bottomLeft.transform.position = new Vector3(x - xOffset, y - yOffset, 0);
 

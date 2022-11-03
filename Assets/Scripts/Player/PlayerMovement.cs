@@ -10,14 +10,21 @@ public class PlayerMovement : MonoBehaviour{
   private bool isGrounded = false;
   private bool collideLeft = false;
   private bool collideRight = false;
+  private Animator animator;
+  private bool facingRight = true;
 
   void Start() {
     player = GetComponent<Rigidbody2D>();
+    animator = GetComponent<Animator>();
   }
 
   void Update() {
 
     jump(); // Makes the player jump if it is allowed
+
+    // Sets variables for the players movement animations
+    animator.SetBool("Grounded", isGrounded);
+    animator.SetFloat("yVelocity", player.velocity.y);
     
     Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
     
@@ -28,16 +35,28 @@ public class PlayerMovement : MonoBehaviour{
     else if(movement.x > 0 && collideRight == true) {
       movement.x = 0;
     }
-    
-    transform.position += movement * Time.deltaTime * moveSpeed;
-    
 
+    // More animation variables
+    if (!isGrounded){ // if in the air, the running animation wont play
+      animator.SetFloat("Speed", 0);
+    }
+    else if (isGrounded) {
+      animator.SetFloat("Speed", Mathf.Abs(movement.x));
+    }
+    
+    transform.position += movement * Time.deltaTime * moveSpeed; // Moves Player
+    
     //turn that character to face the direction of movement
     if((Input.GetAxis("Horizontal") < 0 && transform.localScale.x > 0) ||
       (Input.GetAxis("Horizontal") > 0 && transform.localScale.x < 0)) {
         transform.localScale *= new Vector2(-1,1);
+        if(facingRight) {
+          this.facingRight = false;
+        }
+        else {
+          this.facingRight = true;
+        }
       }
-
   }
 
   private void jump() {
@@ -86,6 +105,10 @@ public class PlayerMovement : MonoBehaviour{
 
   public void setCollideLeft(bool collideLeft) {
     this.collideLeft = collideLeft;
+  }
+
+  public bool getFacingRight() {
+    return this.facingRight;
   }
 
   // End Getters and Setters
