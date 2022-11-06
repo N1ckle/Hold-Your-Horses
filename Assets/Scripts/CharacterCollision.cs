@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCollision : MonoBehaviour {
+public class CharacterCollision : MonoBehaviour {
 
-  private bool isGrounded = false;
+  private bool isGrounded = false; // Only need for players
   private bool collideLeft = false;
   private bool collideRight = false;
-  private float distanceFromGroundToJump = .025f;
+  private float distanceFromGroundToJump = .025f; // Only needed for players
 
   // The corners of the 
   [SerializeField]
