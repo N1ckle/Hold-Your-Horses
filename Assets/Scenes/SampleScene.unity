@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 65740421}
   - component: {fileID: 65740426}
   - component: {fileID: 65740427}
+  - component: {fileID: 65740428}
   m_Layer: 2
   m_Name: Bandit
   m_TagString: Untagged
@@ -191,7 +192,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &65740423
 Animator:
   serializedVersion: 4
@@ -310,6 +311,18 @@ MonoBehaviour:
   topRight: {fileID: 763735289}
   bottomRight: {fileID: 1615956271}
   bottomLeft: {fileID: 991274143}
+--- !u!114 &65740428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65740420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8cd7f3781c092409ce4d95d2f0f614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &94240298
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,6 +410,8 @@ MonoBehaviour:
   muzzleFlash: {fileID: 7035018033135341071, guid: fd5634618e912f144a55404b23427c47, type: 3}
   bulletSpeed: 10
   characterCollision: {fileID: 65740427}
+  healthManager: {fileID: 65740428}
+  health: 3
 --- !u!1 &354038410
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +467,8 @@ MonoBehaviour:
   muzzleFlash: {fileID: 7035018033135341071, guid: fd5634618e912f144a55404b23427c47, type: 3}
   bulletSpeed: 10
   shootKey: 106
+  healthManager: {fileID: 826303943}
+  health: 3
 --- !u!1 &359395633
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,9 +854,10 @@ GameObject:
   - component: {fileID: 826303936}
   - component: {fileID: 826303941}
   - component: {fileID: 826303942}
+  - component: {fileID: 826303943}
   m_Layer: 2
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1009,6 +1027,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &826303943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826303935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8cd7f3781c092409ce4d95d2f0f614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &886991924
 GameObject:
   m_ObjectHideFlags: 0

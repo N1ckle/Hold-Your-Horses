@@ -8,6 +8,7 @@ public class BulletBehavior : MonoBehaviour
   private float bulletSpeed = 0f;
   private bool moveRight = true;
   private Rigidbody2D rb2d;
+  private int damage = 1; // TODO make this adjustable
 
   void Start() {
     rb2d = GetComponent<Rigidbody2D>();
@@ -43,5 +44,13 @@ public class BulletBehavior : MonoBehaviour
   public float getBulletSpeed() {
     return this.bulletSpeed;
   }
-  // End Getters and Setters
+
+  public int getDamage() {
+    return this.damage;
+  }  
+
+  public void setDamage(int damage) {
+    this.damage = damage;
+  }
+ // End Getters and Setters
 }

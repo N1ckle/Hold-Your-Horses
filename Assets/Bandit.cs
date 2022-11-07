@@ -26,7 +26,13 @@ public class Bandit : MonoBehaviour {
   [Header("CharacterCollision Variables")]
     [SerializeField]
     private CharacterCollision characterCollision;
-  
+
+  [Header("Health Variables")]
+    [SerializeField]
+    private HealthManager healthManager;
+    [SerializeField]
+    private int health = 5;
+
   void Start() {
     banditMovement.setMoveSpeed(moveSpeed);
 
@@ -36,6 +42,8 @@ public class Bandit : MonoBehaviour {
     bulletSpawner.setMuzzleFlash(muzzleFlash); // Sets the muzzleflash gameobject
     
     bulletSpawner.setShootKey(KeyCode.K); // TODO remove this. Only for testing purposes
+
+    healthManager.setHealth(health); // Sets the amount of health
   }
 
   
@@ -61,5 +69,6 @@ public class Bandit : MonoBehaviour {
     if(characterCollision.getCollideRight() != banditMovement.getCollideRight()) {
       banditMovement.setCollideRight(characterCollision.getCollideRight());
     }
+
   }
 }

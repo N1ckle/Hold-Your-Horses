@@ -37,6 +37,12 @@ public class Player : MonoBehaviour {
     private KeyCode shootKey = KeyCode.J;
     // End BulletSpawner Variables
 
+    [Header("Health Variables")]
+    [SerializeField]
+    private HealthManager healthManager;
+    [SerializeField]
+    private int health = 3;
+
   // Start is called before the first frame update
   void Start()
   { 
@@ -50,6 +56,8 @@ public class Player : MonoBehaviour {
     bulletSpawner.setAnimator(animator); // Sets the animator
     bulletSpawner.setMuzzleFlash(muzzleFlash); // Sets the muzzleflash gameobject
     bulletSpawner.setShootKey(shootKey); // Sets the Keybind for shooting
+
+    healthManager.setHealth(health); // Sets the health
   }
 
   // Update is called once per frame
